@@ -498,6 +498,18 @@ module.exports = ({
     consumerGroup.resume(topicPartitions)
   }
 
+    /**
+   * Returns the list of topics assigned to this consumer
+   *
+   * @type {import("../../types").Consumer["assigned"]}
+   */
+    const assigned = () => {
+      if (!consumerGroup) {
+        return []
+      }
+      return consumerGroup.assigned()
+    }
+
   /**
    * @return {Object} logger
    */
@@ -514,6 +526,7 @@ module.exports = ({
     describeGroup,
     pause,
     paused,
+    assigned,
     resume,
     on,
     events,
